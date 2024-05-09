@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_portal/views/bookmark_view.dart';
 import 'package:news_portal/views/home_view.dart';
+import 'package:news_portal/views/notification_view.dart';
+import 'package:news_portal/views/profile_view.dart';
 import 'package:news_portal/views/publish_view.dart';
 
 const Color shadowColor = Color.fromRGBO(142, 148, 153, 0.48);
@@ -40,8 +42,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(
-            titleTextStyle:
-                TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            surfaceTintColor:Colors.white,
+            backgroundColor: Colors.white,
+            titleTextStyle: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
           ),
           primaryColor: blue1,
           textTheme: Typography.blackHelsinki.copyWith(
@@ -55,6 +59,11 @@ class MyApp extends StatelessWidget {
                 const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             labelSmall: const TextStyle(
                 fontSize: 12, fontWeight: FontWeight.bold, color: grey1),
+          ),
+          listTileTheme: const ListTileThemeData(
+            iconColor: grey1,
+            leadingAndTrailingTextStyle: TextStyle(fontSize: 12, color: grey1),
+            subtitleTextStyle: TextStyle(fontSize: 12, color: grey1),
           ),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
@@ -106,7 +115,9 @@ class MyHomePage extends StatefulWidget {
 
 enum PageState {
   home,
-  bookmark;
+  bookmark,
+  notification,
+  profile;
 }
 
 class PageControllable extends InheritedWidget {
@@ -165,20 +176,29 @@ class MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> PublishView()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PublishView()));
               },
               style: ElevatedButton.styleFrom(shape: const CircleBorder()),
               child: const Icon(Icons.add),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                pageState = PageState.notification;
+              },
               style: ElevatedButton.styleFrom(shape: const CircleBorder()),
-              icon: const Icon(Icons.home),
+              icon: pageState == PageState.notification
+                  ? const Icon(Icons.add_alert)
+                  : const Icon(Icons.add_alert_outlined),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                pageState = PageState.profile;
+              },
               style: ElevatedButton.styleFrom(shape: const CircleBorder()),
-              icon: const Icon(Icons.home),
+              icon: pageState == PageState.profile
+                  ? const Icon(Icons.person)
+                  : const Icon(Icons.person_outline),
             )
           ],
         ),
@@ -192,6 +212,16 @@ class MyHomePageState extends State<MyHomePage> {
               offstage: _pageState != PageState.bookmark,
               child:
                   CupertinoTabView(builder: (context) => const BookmarkView()),
+            ),
+            Offstage(
+              offstage: _pageState != PageState.notification,
+              child: CupertinoTabView(
+                  builder: (context) => const NotificationView()),
+            ),
+            Offstage(
+              offstage: _pageState != PageState.profile,
+              child:
+                  CupertinoTabView(builder: (context) => const ProfileView()),
             ),
           ],
         ),

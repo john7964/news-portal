@@ -30,7 +30,6 @@ class _BookmarkViewState extends State<BookmarkView> with SingleTickerProviderSt
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: StatefulBuilder(
-
                 builder: (context, setState) {
                   return Row(
                     children: [
@@ -78,6 +77,7 @@ class _BookmarkViewState extends State<BookmarkView> with SingleTickerProviderSt
         ),
       ),
       body: TabBarView(
+        physics: BouncingScrollPhysics(),
         controller: tabController,
         children: [
           CustomScrollView(

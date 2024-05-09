@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_portal/main.dart';
-import 'package:video_player/video_player.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class SearchView extends StatefulWidget {
@@ -12,10 +10,7 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
-
-
   final TextEditingController _controller = TextEditingController();
-
 
   final _channel = WebSocketChannel.connect(
     Uri.parse('wss://echo.websocket.events'),
@@ -35,8 +30,6 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
       floatingActionButton: FloatingActionButton(
         onPressed: _sendMessage,
         tooltip: 'Send message',
@@ -57,23 +50,24 @@ class _SearchViewState extends State<SearchView> {
                 preferredSize: Size.fromHeight(40), child: TextField()),
           ),
           SliverToBoxAdapter(
-            child: Container(
-                height: 200,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      controller: _controller,
-                      decoration: const InputDecoration(labelText: 'Send a message'),
-                    ),
-                    StreamBuilder(
-                      stream: _channel.stream,
-                      builder: (context, snapshot) {
-                        print(snapshot);
-                        return Text(snapshot.hasData ? '${snapshot.data}' : '');
-                      },
-                    ),
-                  ],
-                )),
+            child: SizedBox(
+              height: 200,
+              child: Column(
+                children: [
+                  TextFormField(
+                    controller: _controller,
+                    decoration:
+                        const InputDecoration(labelText: 'Send a message'),
+                  ),
+                  StreamBuilder(
+                    stream: _channel.stream,
+                    builder: (context, snapshot) {
+                      return Text(snapshot.hasData ? '${snapshot.data}' : '');
+                    },
+                  ),
+                ],
+              ),
+            ),
           )
         ],
       ),
