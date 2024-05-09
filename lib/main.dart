@@ -118,150 +118,153 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             themeMode: context.watch<ThemeState>().themeMode,
             theme: ThemeData(
-                dividerTheme: const DividerThemeData(
-                  color: iGrey2,
+              dividerTheme: const DividerThemeData(
+                color: iGrey2,
+              ),
+              scaffoldBackgroundColor: Colors.white,
+              appBarTheme: const AppBarTheme(
+                surfaceTintColor: Colors.white,
+                backgroundColor: Colors.white,
+                titleTextStyle: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
-                scaffoldBackgroundColor: Colors.white,
-                appBarTheme: const AppBarTheme(
-                  surfaceTintColor: Colors.white,
-                  backgroundColor: Colors.white,
-                  titleTextStyle: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                primaryColor: blue1,
-                textTheme: Typography.blackHelsinki.copyWith(
-                  headlineLarge: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w500),
-                  headlineMedium: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w500),
-                  headlineSmall: const TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.w500),
-                  displaySmall: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w500),
-                  labelSmall: const TextStyle(
-                      fontSize: 12, fontWeight: FontWeight.bold, color: grey1),
-                ),
-                listTileTheme: const ListTileThemeData(
-                  iconColor: grey1,
-                  titleTextStyle: TextStyle(color: Colors.black, fontSize: 16),
-                  leadingAndTrailingTextStyle:
-                      TextStyle(fontSize: 12, color: grey1),
-                  subtitleTextStyle: TextStyle(fontSize: 12, color: grey1),
-                ),
-                colorScheme: const ColorScheme.light(),
-                useMaterial3: true,
-                elevatedButtonTheme: ElevatedButtonThemeData(
-                    style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: blue1,
-                  shadowColor: shadowColor,
-                  elevation: 3,
-                  padding: const EdgeInsets.all(14),
-                )),
-                filledButtonTheme: FilledButtonThemeData(
-                    style: FilledButton.styleFrom(
+              ),
+              primaryColor: blue1,
+              textTheme: Typography.blackHelsinki.copyWith(
+                headlineLarge:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                headlineMedium:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                headlineSmall:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                displaySmall:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                labelSmall: const TextStyle(
+                    fontSize: 12, fontWeight: FontWeight.bold, color: grey1),
+              ),
+              listTileTheme: const ListTileThemeData(
+                iconColor: grey1,
+                titleTextStyle: TextStyle(color: Colors.black, fontSize: 16),
+                leadingAndTrailingTextStyle:
+                    TextStyle(fontSize: 12, color: grey1),
+                subtitleTextStyle: TextStyle(fontSize: 12, color: grey1),
+              ),
+              colorScheme: const ColorScheme.light(),
+              useMaterial3: true,
+              elevatedButtonTheme: ElevatedButtonThemeData(
+                  style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: blue1,
+                shadowColor: shadowColor,
+                elevation: 3,
+                padding: const EdgeInsets.all(14),
+              )),
+              filledButtonTheme: FilledButtonThemeData(
+                  style: FilledButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 12),
+                foregroundColor: Colors.white,
+                backgroundColor: blue1,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              )),
+              textButtonTheme: TextButtonThemeData(
+                  style: TextButton.styleFrom(
+                foregroundColor: grey1,
+                padding: const EdgeInsets.all(14),
+              )),
+              iconButtonTheme: IconButtonThemeData(
+                  style: TextButton.styleFrom(
+                foregroundColor: grey1,
+                padding: const EdgeInsets.all(14),
+              )),
+              outlinedButtonTheme: OutlinedButtonThemeData(
+                style: OutlinedButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 12),
-                  foregroundColor: Colors.white,
-                  backgroundColor: blue1,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                )),
-                textButtonTheme: TextButtonThemeData(
-                    style: TextButton.styleFrom(
-                  foregroundColor: grey1,
-                  padding: const EdgeInsets.all(14),
-                )),
-                iconButtonTheme: IconButtonThemeData(
-                    style: TextButton.styleFrom(
-                  foregroundColor: grey1,
-                  padding: const EdgeInsets.all(14),
-                )),
-                outlinedButtonTheme: OutlinedButtonThemeData(
-                  style: OutlinedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 12),
-                    foregroundColor: black1,
-                    side: const BorderSide(color: grey2, width: 1),
-                  ),
-                )),
+                  foregroundColor: black1,
+                  side: const BorderSide(color: grey2, width: 1),
+                ),
+              ),
+            ),
             darkTheme: ThemeData(
-                brightness: Brightness.dark,
-                dividerTheme:
-                    const DividerThemeData(color: dmBlack2, thickness: 2.0),
-                scaffoldBackgroundColor: dmBlack1,
-                appBarTheme: const AppBarTheme(
-                  surfaceTintColor: dmBlack1,
-                  backgroundColor: dmBlack1,
-                  titleTextStyle: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-                primaryColor: blue1,
-                textTheme: Typography.whiteCupertino.copyWith(
-                  headlineLarge: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white),
-                  headlineMedium: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white),
-                  headlineSmall: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white),
-                  displaySmall: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white),
-                  labelSmall: const TextStyle(
-                      fontSize: 12, fontWeight: FontWeight.bold, color: grey1),
-                ),
-                listTileTheme: const ListTileThemeData(
-                  iconColor: grey1,
-                  leadingAndTrailingTextStyle:
-                      TextStyle(fontSize: 12, color: grey1),
-                  titleTextStyle:
-                      TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  subtitleTextStyle: TextStyle(fontSize: 12, color: grey1),
-                ),
-                colorScheme: ColorScheme.dark(),
-                useMaterial3: true,
-                elevatedButtonTheme: ElevatedButtonThemeData(
-                    style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: blue1,
-                  shadowColor: shadowColor,
-                  elevation: 3,
-                  padding: const EdgeInsets.all(14),
-                )),
-                filledButtonTheme: FilledButtonThemeData(
-                    style: FilledButton.styleFrom(
+              brightness: Brightness.dark,
+              dividerTheme:
+                  const DividerThemeData(color: dmBlack2, thickness: 2.0),
+              scaffoldBackgroundColor: dmBlack1,
+              appBarTheme: const AppBarTheme(
+                surfaceTintColor: dmBlack1,
+                backgroundColor: dmBlack1,
+                titleTextStyle: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              primaryColor: blue1,
+              textTheme: Typography.whiteCupertino.copyWith(
+                headlineLarge: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
+                headlineMedium: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
+                headlineSmall: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
+                displaySmall: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
+                labelSmall: const TextStyle(
+                    fontSize: 12, fontWeight: FontWeight.bold, color: grey1),
+              ),
+              listTileTheme: const ListTileThemeData(
+                iconColor: grey1,
+                leadingAndTrailingTextStyle:
+                    TextStyle(fontSize: 12, color: grey1),
+                titleTextStyle:
+                    TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                subtitleTextStyle: TextStyle(fontSize: 12, color: grey1),
+              ),
+              colorScheme: const ColorScheme.dark(),
+              useMaterial3: true,
+              elevatedButtonTheme: ElevatedButtonThemeData(
+                  style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: blue1,
+                shadowColor: shadowColor,
+                elevation: 3,
+                padding: const EdgeInsets.all(14),
+              )),
+              filledButtonTheme: FilledButtonThemeData(
+                  style: FilledButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 12),
+                foregroundColor: Colors.white,
+                backgroundColor: blue1,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              )),
+              textButtonTheme: TextButtonThemeData(
+                  style: TextButton.styleFrom(
+                foregroundColor: grey1,
+                padding: const EdgeInsets.all(14),
+              )),
+              iconButtonTheme: IconButtonThemeData(
+                  style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.all(14),
+              )),
+              outlinedButtonTheme: OutlinedButtonThemeData(
+                style: OutlinedButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 12),
                   foregroundColor: Colors.white,
-                  backgroundColor: blue1,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                )),
-                textButtonTheme: TextButtonThemeData(
-                    style: TextButton.styleFrom(
-                  foregroundColor: grey1,
-                  padding: const EdgeInsets.all(14),
-                )),
-                iconButtonTheme: IconButtonThemeData(
-                    style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.all(14),
-                )),
-                outlinedButtonTheme: OutlinedButtonThemeData(
-                  style: OutlinedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 12),
-                    foregroundColor: Colors.white,
-                    side: const BorderSide(color: dmBlack2, width: 1),
-                  ),
-                )),
+                  side: const BorderSide(color: dmBlack2, width: 1),
+                ),
+              ),
+            ),
             home: child,
           );
         });

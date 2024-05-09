@@ -85,17 +85,17 @@ In conclusion, the snow that blankets the sky and creates a winter wonderland is
             right: 0,
             bottom: 0,
             child: Container(
-              decoration:  BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Theme.of(context).scaffoldBackgroundColor.withOpacity(0),
-                          Theme.of(context).scaffoldBackgroundColor
-                        ],
-                        stops: [0.0, 0.7],
-                      ),
-                    ),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Theme.of(context).scaffoldBackgroundColor.withOpacity(0),
+                    Theme.of(context).scaffoldBackgroundColor
+                  ],
+                  stops: const [0.0, 0.7],
+                ),
+              ),
               height: MediaQuery.of(context).viewPadding.bottom + 90,
               child: const Center(
                 child: UnconstrainedBox(
