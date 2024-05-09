@@ -211,7 +211,6 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(
-                  color: iGrey2,
                 ),
               ),
             ),

@@ -55,7 +55,8 @@ In conclusion, the snow that blankets the sky and creates a winter wonderland is
                 ),
               ),
               SliverStickyHeader.builder(
-                builder: (context, state) => const BoxTitle("相关新闻", padding: EdgeInsets.fromLTRB(20, 16, 20, 12)),
+                builder: (context, state) => const BoxTitle("相关新闻",
+                    padding: EdgeInsets.fromLTRB(20, 16, 20, 12)),
                 sliver: SliverToBoxAdapter(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -63,7 +64,8 @@ In conclusion, the snow that blankets the sky and creates a winter wonderland is
                       children: List.generate(
                         3,
                         (index) => Padding(
-                          padding: EdgeInsets.only(left: 20, right: index == 2 ? 20 : 0),
+                          padding: EdgeInsets.only(
+                              left: 20, right: index == 2 ? 20 : 0),
                           child: const NewsVerticalCard(),
                         ),
                       ),
@@ -83,17 +85,20 @@ In conclusion, the snow that blankets the sky and creates a winter wonderland is
             right: 0,
             bottom: 0,
             child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color.fromRGBO(255, 255, 255, 0), Color.fromRGBO(255, 255, 255, 1)],
-                  stops: [0.0, 0.7],
-                ),
-              ),
+              decoration:  BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Theme.of(context).scaffoldBackgroundColor.withOpacity(0),
+                          Theme.of(context).scaffoldBackgroundColor
+                        ],
+                        stops: [0.0, 0.7],
+                      ),
+                    ),
               height: MediaQuery.of(context).viewPadding.bottom + 90,
               child: const Center(
-                child: FittedBox(
+                child: UnconstrainedBox(
                   child: NewsAction(),
                 ),
               ),
@@ -125,7 +130,11 @@ class NewsAction extends StatelessWidget {
             ),
             onPressed: () {},
             child: const Row(
-              children: [Icon(Icons.thumb_up, size: 20, color: Colors.white), SizedBox(width: 6), Text("128")],
+              children: [
+                Icon(Icons.thumb_up, size: 20, color: Colors.white),
+                SizedBox(width: 6),
+                Text("128")
+              ],
             ),
           ),
           TextButton(
@@ -137,7 +146,9 @@ class NewsAction extends StatelessWidget {
               showModalBottomSheet(
                 elevation: 0,
                 shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12)),
                 ),
                 context: context,
                 isScrollControlled: true,
@@ -158,11 +169,12 @@ class NewsAction extends StatelessWidget {
                           child: SafeArea(
                             top: false,
                             child: Padding(
-                              padding: const EdgeInsets.fromLTRB(20,16,20,0),
+                              padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const BoxTitle("评论", padding: EdgeInsets.zero),
+                                  const BoxTitle("评论",
+                                      padding: EdgeInsets.zero),
                                   const SizedBox(height: 20),
                                   Expanded(
                                     child: CustomScrollView(
@@ -171,7 +183,8 @@ class NewsAction extends StatelessWidget {
                                       slivers: [
                                         SliverSafeArea(
                                           top: false,
-                                          sliver: SliverList.list(children: const [
+                                          sliver:
+                                              SliverList.list(children: const [
                                             Comment(),
                                             Comment(),
                                             Comment(),
@@ -192,19 +205,28 @@ class NewsAction extends StatelessWidget {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 8.0),
                                     child: TextField(
-                                      style: Theme.of(context).textTheme.bodyMedium,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
                                       cursorHeight: 20,
                                       decoration: InputDecoration(
-                                        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                horizontal: 16),
                                         filled: true,
                                         hintText: "输入评论内容",
-                                        constraints: const BoxConstraints(maxHeight: 44),
-                                        hintStyle: Theme.of(context).textTheme.bodyMedium,
+                                        constraints:
+                                            const BoxConstraints(maxHeight: 44),
+                                        hintStyle: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium,
                                         border: OutlineInputBorder(
                                           borderSide: BorderSide.none,
-                                          borderRadius: BorderRadius.circular(22.0),
+                                          borderRadius:
+                                              BorderRadius.circular(22.0),
                                         ),
                                         fillColor: iGrey1,
                                       ),
@@ -222,7 +244,11 @@ class NewsAction extends StatelessWidget {
               );
             },
             child: const Row(
-              children: [Icon(Icons.comment_outlined, size: 20, color: Colors.white), SizedBox(width: 6), Text("128")],
+              children: [
+                Icon(Icons.comment_outlined, size: 20, color: Colors.white),
+                SizedBox(width: 6),
+                Text("128")
+              ],
             ),
           ),
           TextButton(
@@ -233,7 +259,8 @@ class NewsAction extends StatelessWidget {
             onPressed: () {},
             child: const Row(
               children: [
-                Icon(Icons.bookmark_add_outlined, size: 20, color: Colors.white),
+                Icon(Icons.bookmark_add_outlined,
+                    size: 20, color: Colors.white),
                 SizedBox(width: 6),
                 Text("82")
               ],
@@ -268,7 +295,8 @@ class Comment extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Stacia Keyna", style: Theme.of(context).textTheme.labelSmall),
+              Text("Stacia Keyna",
+                  style: Theme.of(context).textTheme.labelSmall),
               const SizedBox(height: 4),
               const Text(
                   "SI absolutely love the winter season and the beauty of a snow-covered landscape. It's like walking in a fairy tale! ✨"),
@@ -293,19 +321,23 @@ class BottomModalScrollPhysics extends ScrollPhysics {
   double applyBoundaryConditions(ScrollMetrics position, double value) {
     final direction = position.axisDirection;
     if (direction == AxisDirection.down) {
-      if (value < position.pixels && position.pixels <= position.minScrollExtent) {
+      if (value < position.pixels &&
+          position.pixels <= position.minScrollExtent) {
         return value - position.pixels;
       }
 
-      if (value < position.minScrollExtent && position.minScrollExtent < position.pixels) {
+      if (value < position.minScrollExtent &&
+          position.minScrollExtent < position.pixels) {
         return value - position.minScrollExtent;
       }
     } else if (direction == AxisDirection.up) {
-      if (position.maxScrollExtent <= position.pixels && position.pixels < value) {
+      if (position.maxScrollExtent <= position.pixels &&
+          position.pixels < value) {
         return value - position.pixels;
       }
 
-      if (position.pixels < position.maxScrollExtent && position.maxScrollExtent < value) {
+      if (position.pixels < position.maxScrollExtent &&
+          position.maxScrollExtent < value) {
         return value - position.maxScrollExtent;
       }
     }

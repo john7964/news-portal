@@ -89,9 +89,7 @@ class _BookmarkViewState extends State<BookmarkView> with SingleTickerProviderSt
                     child: NewsHorizontalCard(),
                   ),
                   separatorBuilder: (BuildContext context, int index) =>
-                  const Divider(
-                    color: iGrey2,
-                  ),
+                  const Divider(),
                 ),
               ),
             ],

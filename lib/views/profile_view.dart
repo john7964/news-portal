@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../main.dart';
 
@@ -60,12 +61,14 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
               ),
               trailing: Switch.adaptive(
-                value: false,
-                onChanged: (value) {},
+                value: context.watch<ThemeState>().themeMode == ThemeMode.dark,
+                onChanged: (value) {
+                  context.read<ThemeState>().themeMode =
+                      value ? ThemeMode.dark : ThemeMode.light;
+                },
               ),
               title: const Text("Dark Mode", maxLines: 1),
               subtitle: const Text("Dissable", maxLines: 1),
-
             ),
             ListTile(
               leading: Container(
@@ -76,10 +79,7 @@ class _ProfileViewState extends State<ProfileView> {
                 width: 52,
                 height: 52,
                 child: const Center(
-                  child: Icon(
-                    Icons.message_rounded,
-                    color: blue1
-                  ),
+                  child: Icon(Icons.message_rounded, color: blue1),
                 ),
               ),
               trailing: const Icon(Icons.chevron_right),

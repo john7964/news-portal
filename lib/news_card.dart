@@ -183,7 +183,8 @@ class NewsHorizontalCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: CachedNetworkImage(
-                imageUrl: "https://sunivers-erp.oss-cn-shenzhen.aliyuncs.com/dev/front/app/image/ann-danilina-zgohOdeKpnA-unsplash.jpg",
+                imageUrl:
+                    "https://sunivers-erp.oss-cn-shenzhen.aliyuncs.com/dev/front/app/image/ann-danilina-zgohOdeKpnA-unsplash.jpg",
                 fit: BoxFit.cover,
               ),
             ),
